@@ -4,7 +4,9 @@
 
   const materialTemplate = document.querySelector("#material-template");
   const materialList = document.querySelector("#material-list");
+  const partsInfo = document.querySelector("#parts-info")
 
+ 
   function modelLoaded() {
     hotspots.forEach(hotspot => {
       hotspot.style.display = "block";
@@ -18,10 +20,9 @@
         infobox.forEach((infoBox, index) => {
           let selected = document.querySelector(`#hotspot-${index + 1}`);
 
-          // Create an image element
+          
           const imgElement = document.createElement('img');
           imgElement.src = `images/${infoBox.thumbnail}`;
-          imgElement.alt = infoBox.heading; // Set alt attribute for accessibility
 
           const titleElement = document.createElement('h2');
           titleElement.textContent = infoBox.heading;
@@ -38,6 +39,7 @@
   }
 
   function loadMaterialInfo() {
+    
     fetch("https://swiftpixel.com/earbud/api/materials")
       .then(response => response.json())
       .then(materials => {
