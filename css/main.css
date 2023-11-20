@@ -90,8 +90,14 @@ model-viewer {
   background-color: #FFFEEF;
 }
 
+.HotspotAnnotation {
+  text-align: center;
+}
+
 .HotspotAnnotation img {
   max-width: 250px;
+  width: 100px;
+  vertical-align: middle;
 }
 
 model-viewer::part(default-progress-bar) {
