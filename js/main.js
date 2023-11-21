@@ -36,14 +36,18 @@
       })
       .catch(error => console.error('Oppssomethingiswrong', error));
   }
+  loadInfoBoxes();
  
-  
-  function appendElement(parent, tag, attributes) {
-    const element = document.createElement(tag);
-    Object.entries(attributes).forEach(([key, value]) => (element[key] = value));
-    parent.appendChild(element);
+  function showInfo() {
+    let selected = document.querySelector(`#${this.slot}`);
+    gsap.to(selected, 1, { autoAlpha: 1 });
   }
-  
+
+  function hideInfo() {
+    let selected = document.querySelector(`#${this.slot}`);
+    gsap.to(selected, 1, { autoAlpha: 0 });
+  }
+
 
   function loadMaterialInfo() {
     materialInfo.innerHTML = spinner; 
@@ -70,17 +74,7 @@
   }
 
   loadMaterialInfo();
-  loadInfoBoxes();
-
-  function showInfo() {
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 1 });
-  }
-
-  function hideInfo() {
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 0 });
-  }
+ 
 
   model.addEventListener("load", modelLoaded);
 
